@@ -14,9 +14,9 @@ function cookieconsent_banner(force) {
   var OPTIONS_UPDATER = 'update_cookieconsent_options';
 
   // Name of cookie to be set when dismissed
-  var DISMISSED_COOKIE = 'cookieconsent_dismissed';
+  var DISMISSED_COOKIE = 'cookieconsent_userchoice';
 
-  // The path to built in themes (s3 bucket)
+  // The path to built in themes (s3 bucket). May be overridden with the 'theme' runtime option.
   var THEME_BUCKET_PATH = '//s3.amazonaws.com/cc.silktide.com/';
 
   // No point going further if they've already dismissed.
@@ -214,7 +214,8 @@ function cookieconsent_banner(force) {
   var cookieconsent = {
     options: {
       message: 'This website uses cookies to ensure you get the best experience on our website. ',
-      dismiss: 'Got it!',
+      dismiss_yes: 'I accept!',
+      dismiss_no: 'I refuse!',
       learnMore: 'More info',
       link: null,
       container: null, // selector
@@ -222,8 +223,8 @@ function cookieconsent_banner(force) {
       markup: [
         '<div class="cc_banner-wrapper {{containerClasses}}">',
         '<div class="cc_banner cc_container cc_container--open">',
-        '<a href="#null" data-cc-event="click:dismiss" class="cc_btn cc_btn_accept_all">{{options.dismiss}}</a>',
-
+        '<a href="#null" data-cc-event="click:dismiss_yes" class="cc_btn cc_btn_accept_all">{{options.dismiss_yes}}</a>',
+        '<a href="#null" data-cc-event="click:dismiss_no" class="cc_btn cc_btn_accept_all">{{options.dismiss_no}}</a>',
         '<p class="cc_message">{{options.message}} <a data-cc-if="options.link" class="cc_more_info" href="{{options.link || "#null"}}">{{options.learnMore}}</a></p>',
 
         '<a class="cc_logo" target="_blank" href="http://silktide.com/cookieconsent">Cookie Consent plugin for the EU cookie law</a>',
@@ -308,16 +309,18 @@ function cookieconsent_banner(force) {
       }
     },
 
-    dismiss: function (evt) {
-      evt.preventDefault && evt.preventDefault();
-      evt.returnValue = false;
-      this.setDismissedCookie();
+    dismiss_yes: function (evt) {
+      evt.preventDefault();
+      Util.setCookie(DISMISSED_COOKIE, 'yes');
       this.container.removeChild(this.element);
     },
 
-    setDismissedCookie: function () {
-      Util.setCookie(DISMISSED_COOKIE, 'yes');
-    }
+    dismiss_no: function (evt) {
+      evt.preventDefault();
+      Util.setCookie(DISMISSED_COOKIE, 'no');
+      this.container.removeChild(this.element);
+    },
+
   };
 
   var init;
