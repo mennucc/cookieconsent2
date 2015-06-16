@@ -1,6 +1,6 @@
-function cookieconsent_banner() {
+function cookieconsent_banner(force) {
   // Stop from running again, if accidently included more than once.
-  if (window.hasCookieConsent) return;
+  if (window.hasCookieConsent && !force) return;
   window.hasCookieConsent = true;
 
   /*
@@ -20,7 +20,7 @@ function cookieconsent_banner() {
   var THEME_BUCKET_PATH = '//s3.amazonaws.com/cc.silktide.com/';
 
   // No point going further if they've already dismissed.
-  if (document.cookie.indexOf(DISMISSED_COOKIE) > -1) {
+  if (document.cookie.indexOf(DISMISSED_COOKIE) > -1 && ! force) {
     return;
   }
 
