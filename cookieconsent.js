@@ -221,7 +221,7 @@ function cookieconsent_banner(force) {
       learnMore: 'More info',
       link: null,
       container: null, // selector
-      theme: 'light-floating',
+      theme: 'light-top',
       markup: [
         '<div class="cc_banner-wrapper {{containerClasses}}">',
         '<div class="cc_banner cc_container cc_container--open">',
