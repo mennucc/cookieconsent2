@@ -213,6 +213,8 @@ function cookieconsent_banner(force) {
    */
   var cookieconsent = {
     options: {
+      callback_yes: function () {window.location.reload();},
+      callback_no:  function () {window.location.reload();},
       message: 'This website uses cookies to ensure you get the best experience on our website. ',
       dismiss_yes: 'I accept!',
       dismiss_no: 'I refuse!',
@@ -313,12 +315,14 @@ function cookieconsent_banner(force) {
       evt.preventDefault();
       Util.setCookie(DISMISSED_COOKIE, 'yes');
       this.container.removeChild(this.element);
+      this.options.callback_yes();
     },
 
     dismiss_no: function (evt) {
       evt.preventDefault();
       Util.setCookie(DISMISSED_COOKIE, 'no');
       this.container.removeChild(this.element);
+      this.options.callback_no();
     },
 
   };
