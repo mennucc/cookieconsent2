@@ -133,7 +133,7 @@ function cookieconsent_banner(force) {
     };
 
     /*
-     Replace {{variable.name}} with it's property on the scope
+     Replace {{variable.name}} with it s property on the scope
      Also supports {{variable.name || another.name || 'string'}}
      */
     var insertReplacements = function (htmlStr, scope) {
@@ -338,5 +338,4 @@ function cookieconsent_banner(force) {
   })();
 
   Util.addEventListener(document, 'readystatechange', init);
-
 };
