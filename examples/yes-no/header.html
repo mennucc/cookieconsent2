@@ -1,0 +1,46 @@
+<!-- https://developers.google.com/analytics/devguides/collection/gajs/ -->
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-XXXX-1']);
+  _gaq.push(['_trackPageview']);
+
+<!-- possibly also https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#anonymizeIp -->
+<!-- ga('set', 'anonymizeIp', true); -->
+
+  function go_google_analytics() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  };
+</script>
+
+<!-- Google+ Place this render call where appropriate -->
+<script type="text/javascript">
+  window.___gcfg = {lang: 'it'};
+
+  function go_google_plus(){
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  };
+</script>
+
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'XXXXXX';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    function go_disqus() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    };
+</script>
+
+<!-- cookie consent is in the footer -->
+
+<script type="text/javascript">
+  <!-- may be changed further in header -->
+  var _enable_disqus = 1;
+</script>

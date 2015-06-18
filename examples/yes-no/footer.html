@@ -1,0 +1,48 @@
+
+<div class="footer">
+
+<div class="social">
+<div><i> If the informations in this web site 
+ were useful to you, you may want to share on social networks.
+  </i>
+<span class="g-plusone">[no cookies, no Google+]</span></div>
+</div>
+
+<hr>
+
+<div class="comments">
+<div id="disqus_thread"></div>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+<hr>
+
+<div class="footer_buttons">
+
+<a class="footer_button" href="javascript:cookieconsent_banner(1)">Cambia cookie policy</a>
+
+<a class="footer_button" href="http://validator.w3.org/check?uri=referer"><img
+        src="http://www.w3.org/Icons/valid-html401"
+        alt="Valid HTML 4.01 Transitional" height="31" width="88"></a>
+
+</div>
+
+</div>
+
+
+<script type="text/javascript">
+  function go_all() {
+    if (document.cookie.indexOf('cookieconsent_userchoice=yes') > -1) {
+      go_google_analytics();
+      go_google_plus();
+      if (  _enable_disqus ) {     go_disqus(); }; 
+    }};
+</script>
+
+
+<script type="text/javascript" src="/cookieconsent.js"></script>
+
+<script type="text/javascript">
+cookieconsent_banner();
+go_all();
+</script>
